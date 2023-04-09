@@ -1,0 +1,50 @@
+@startuml
+note left of User 
+Green boxes are obligatory to implement,
+blue boxes are features to implement
+end note
+rectangle UserAuth{
+    (Register) #palegreen;line:green;line.dashed;text:green;
+    (Register with Github/Google) #palegreen;line:green;line.dashed;text:green;
+    (Login with Github/Google) #palegreen;line:green;line.dashed;text:green
+    (Login) #palegreen;line:green;line.dashed;text:green
+    (Logout) #palegreen;line:green;line.dashed;text:green
+}
+
+:User: -- UserAuth 
+
+rectangle CodeEditor {
+    (Create and render HTML) #palegreen;line:green;line.dashed;text:green;
+    (Create and render CSS) #palegreen;line:green;line.dashed;text:green
+    (Create and render JS) #palegreen;line:green;line.dashed;text:green;
+    (Save your component) #palegreen;line:green;line.dashed;text:green;
+    (Dependecies) #aliceblue;line:blue;line.dotted;text:blue;
+    (Create and render React) #aliceblue;line:blue;line.dotted;text:blue;
+    (Create and render Vue) #aliceblue;line:blue;line.dotted;text:blue;
+    (Create and render Angular) #aliceblue;line:blue;line.dotted;text:blue;
+}
+
+UserAuth <|-- CodeEditor
+
+rectangle SocialNetwork{
+    (Share your component) #palegreen;line:green;line.dashed;text:green;
+    (Preview your component) #palegreen;line:green;line.dashed;text:green;
+    (Like your component) #palegreen;line:green;line.dashed;text:green;
+    (Comment your component) #palegreen;line:green;line.dashed;text:green;
+}
+
+CodeEditor <|-- SocialNetwork
+
+:Admin: --|> User
+
+rectangle AdminPanel{
+    (Show all users) #palegreen;line:green;line.dashed;text:green;
+    (Show all components) #palegreen;line:green;line.dashed;text:green;
+    (Filter by tags) #palegreen;line:green;line.dashed;text:green;
+    (Delete component) #aliceblue;line:blue;line.dotted;text:blue;
+    (Deploy component Docker?¿) #aliceblue;line:blue;line.dotted;text:blue;
+}
+
+:Admin: -- AdminPanel
+
+@enduml
