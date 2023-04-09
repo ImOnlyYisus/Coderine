@@ -17,7 +17,7 @@ Mi idea es hacer una aplicación parecida, aunque si me da tiempo, le añadiré 
 Aquí adjunto una imagen de mis funcionalidades, que son las que quiero implementar en mi aplicación.
 
 ![Uses-cases](uml/usescases.png)
-
+ 
 ## Tecnologías
 
 Mi aplicación la voy a desarrollar en **Vue.js**, ya que es el framework que me siento mas cómodo, y también porque es el que más he utilizado en los proyectos que he hecho.
