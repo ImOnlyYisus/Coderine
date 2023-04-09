@@ -3,6 +3,7 @@ note left of User
 Green boxes are obligatory to implement,
 blue boxes are features to implement
 end note
+
 rectangle UserAuth{
     (Register) #palegreen;line:green;line.dashed;text:green;
     (Register with Github/Google) #palegreen;line:green;line.dashed;text:green;
