@@ -16,7 +16,7 @@ Mi idea es hacer una aplicación parecida, aunque si me da tiempo, le añadiré 
 
 Aquí adjunto una imagen de mis funcionalidades, que son las que quiero implementar en mi aplicación.
 
-![Uses-cases](uml/usescases.png)
+![Uses-cases](uml/uses-cases.png)
  
 ## Tecnologías
 
