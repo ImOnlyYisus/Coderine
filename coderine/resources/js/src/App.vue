@@ -4,9 +4,10 @@
         <a @click="logout">Logout</a>
     </div>
     <div v-else>
-        <router-link to="/">Home</router-link>
+        <!-- <router-link to="/">Home</router-link>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
+        <router-link to="/playground">CODEPEN</router-link> -->
         <router-view></router-view>
     </div>
 </template>

@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import PlayGroundView from "../views/PlayGroundView.vue";
 
 export const routes = [
     {
@@ -25,6 +26,17 @@ export const routes = [
         path: "/register",
         name: "Register",
         component: RegisterView,
+    },
+    {
+        path: "/playground",
+        name: "Playground",
+        component: PlayGroundView,
+    },
+    {
+        path: "/playground/:htmlTemplate",
+        name: "PlaygroundTemplate",
+        component: PlayGroundView,
+        props: true,
     },
 ];
 
