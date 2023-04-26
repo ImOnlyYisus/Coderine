@@ -1,0 +1,83 @@
+.playground__main {
+    height: 100vh;
+    width: 100vw;
+
+    .playground__section {
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+.playground__views {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &.playground__views--html::before {
+        content: '';
+        position: absolute;
+        background: url('/images/html.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        left: 10px;
+        z-index: 1;
+        opacity: 0.5;
+    }
+
+    &.playground__views--css::before {
+        content: '';
+        position: absolute;
+        background: url('/images/css.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        left: 10px;
+        z-index: 1;
+        opacity: 0.5;
+    }
+
+    &.playground__views--js::before {
+        content: '';
+        position: absolute;
+        background: url('/images/js.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 30px;
+        height: 30px;
+        bottom: 10px;
+        left: 10px;
+        z-index: 1;
+        opacity: 0.5;
+    }
+
+    .playground__code {
+        height: 100%;
+        width: 100%;
+        background-color: $code-background-color;
+        color: $code-color;
+        font-size: 1.2rem;
+        font-family: 'Fira Code', monospace;
+        resize: none;
+        padding: 1rem;
+    }
+
+    .playground__code__logo {
+        position: absolute;
+        bottom: 5px;
+        right: 20px;
+        height: 40px;
+        opacity: 0.2;
+    }
+
+    .playground__iframe {
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+}
