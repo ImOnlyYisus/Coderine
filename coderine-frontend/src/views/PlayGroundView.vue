@@ -1,38 +1,43 @@
 <template>
-    <main class="playground__main">
-        <section class="playground__section">
-            <Split ref="split1" :snapOffset="50" style="height: 100%;">
-                <SplitArea :size="50" :minSize="150">
-                    <Split direction="vertical">
-                        <SplitArea :size="50" :minSize="150">
-                            <div class="playground__views playground__views--html">
-                                <CodeEditor :language="'html'" :code="htmlCode" @update:code="handlerUpdateCode" />
-                            </div>
-                        </SplitArea>
-                        <SplitArea :size="50" :minSize="150">
-                            <div class="playground__views playground__views--css">
-                                <CodeEditor :language="'css'" :code="cssCode" @update:code="handlerUpdateCode" />
-                            </div>
-                        </SplitArea>
-                    </Split>
-                </SplitArea>
-                <SplitArea :size="50">
-                    <Split direction="vertical" :minSize="150">
-                        <SplitArea :size="50" :minSize="150">
-                            <div class="playground__views playground__views--js">
-                                <CodeEditor :language="'javascript'" :code="jsCode" @update:code="handlerUpdateCode" />
-                            </div>
-                        </SplitArea>
-                        <SplitArea :size="50" :minSize="150">
-                            <div class="playground__views">
-                                <iframe :srcdoc="renderHtml" class="playground__iframe"></iframe>
-                            </div>
-                        </SplitArea>
-                    </Split>
-                </SplitArea>
-            </Split>
-        </section>
-    </main>
+    <div class="playground__grid">
+        <header class="playground__header">
+            <HeaderPlayground />
+        </header>
+        <main class="playground__main">
+            <section class="playground__section">
+                <Split ref="split1" :snapOffset="50" style="height: 100%;">
+                    <SplitArea :size="50" :minSize="150">
+                        <Split direction="vertical">
+                            <SplitArea :size="50" :minSize="150">
+                                <div class="playground__views playground__views--html">
+                                    <CodeEditor :language="'html'" :code="htmlCode" @update:code="handlerUpdateCode" />
+                                </div>
+                            </SplitArea>
+                            <SplitArea :size="50" :minSize="150">
+                                <div class="playground__views playground__views--css">
+                                    <CodeEditor :language="'css'" :code="cssCode" @update:code="handlerUpdateCode" />
+                                </div>
+                            </SplitArea>
+                        </Split>
+                    </SplitArea>
+                    <SplitArea :size="50">
+                        <Split direction="vertical" :minSize="150">
+                            <SplitArea :size="50" :minSize="150">
+                                <div class="playground__views playground__views--js">
+                                    <CodeEditor :language="'javascript'" :code="jsCode" @update:code="handlerUpdateCode" />
+                                </div>
+                            </SplitArea>
+                            <SplitArea :size="50" :minSize="150">
+                                <div class="playground__views">
+                                    <iframe :srcdoc="renderHtml" class="playground__iframe"></iframe>
+                                </div>
+                            </SplitArea>
+                        </Split>
+                    </SplitArea>
+                </Split>
+            </section>
+        </main>
+    </div>
 </template>
 
 <script setup>
@@ -41,6 +46,7 @@ import { useRouter } from 'vue-router'
 import { encode, decode } from 'js-base64'
 import html from '../utils/htmlCode.js'
 import CodeEditor from '../components/CodeEditor.vue'
+import HeaderPlayground from '../components/HeaderPlayground.vue'
 
 
 const htmlCode = ref('')

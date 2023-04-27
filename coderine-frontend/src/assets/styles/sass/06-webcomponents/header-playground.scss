@@ -1,0 +1,23 @@
+.playground__header {
+    height: 100vh;
+    width: 4vw;
+    background-color: $header-background-color;
+
+    .header__playground {
+        min-height: 80%;
+        width: 100%;
+        margin: 2rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        color: $header-text-color;
+
+        .header__playground__image {
+            border: solid 2px $header-text-color;
+            border-bottom-width: 7px;
+            padding: 1rem;
+            border-radius: 100%;
+        }
+    }
+}

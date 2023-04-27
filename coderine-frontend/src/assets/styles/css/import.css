@@ -65,12 +65,15 @@ textarea {
 ul {
   list-style: none; }
 
-.playground__main {
-  height: 100vh;
-  width: 100vw; }
-  .playground__main .playground__section {
+.playground__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  .playground__grid .playground__main {
     height: 100vh;
-    width: 100vw; }
+    width: 96vw; }
+    .playground__grid .playground__main .playground__section {
+      height: 100vh;
+      width: 96vw; }
 
 .playground__views {
   height: 100%;
@@ -132,3 +135,22 @@ ul {
     height: 100%;
     width: 100%;
     border: none; }
+
+.playground__header {
+  height: 100vh;
+  width: 4vw;
+  background-color: #212a3e; }
+  .playground__header .header__playground {
+    min-height: 80%;
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    color: #f8f8f2; }
+    .playground__header .header__playground .header__playground__image {
+      border: solid 2px #f8f8f2;
+      border-bottom-width: 7px;
+      padding: 1rem;
+      border-radius: 100%; }

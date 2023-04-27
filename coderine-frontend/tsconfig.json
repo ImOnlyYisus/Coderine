@@ -4,8 +4,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+      "vue3-split-panel": ["node_modules/vue3-split-panel/dist/vue3-split-panel.umd.js"],
+      "types" : ["vue3-split-panel"]
+    },
+    "allowJs": true,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "esModuleInterop": true
   },
 
   "references": [

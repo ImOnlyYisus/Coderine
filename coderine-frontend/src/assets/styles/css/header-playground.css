@@ -1,0 +1,15 @@
+.playground__header {
+  height: 100vh;
+  width: 4vw;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .playground__header .header__playground {
+    min-height: 80%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column; }
