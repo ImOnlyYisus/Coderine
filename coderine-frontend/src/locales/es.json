@@ -1,0 +1,71 @@
+{
+    "header-component": {
+        "links": {
+            "home": "Incio",
+            "playground": "Playground",
+            "components": "Componentes",
+            "register": "Registro",
+            "login": "Iniciar sesión",
+            "logout": "Cerrar sesión"
+        },
+        "logout": {
+            "title": "Cerrar sesión",
+            "message": "¿Estás seguro de que quieres cerrar sesión?",
+            "success": "Se ha cerrado sesión correctamente."
+        }
+    },
+    "welcome-component": {
+        "title": "Bienvenido a",
+        "subtitle": "CODERINE",
+        "paragraph-1": "¿Eres un creador de contenido en línea? ¿Te gusta compartir tus creaciones con la comunidad y recibir feedback?",
+        "paragraph-2": "Entonces, nuestra aplicación es perfecta para ti. En ella, podrás compartir tus proyectos creativos con otros usuarios y recibir likes y comentarios en tiempo real.",
+        "paragraph-3": "Además, podrás guardar tus creaciones y ver el historial de tus proyectos en un solo lugar.",
+        "paragraph-4": "En nuestra aplicación, podrás presarte de manera creativa y recibir la validación y el apoyo de otros usuarios que comparten tus intereses.",
+        "paragraph-5": "Únete a nuestra comunidad y comparte tus creaciones con el mundo.¡Regístrate ahora y comienza a compartir tus proyectos con una audiencia global!",
+        "button": "Empezar ahora!"
+    },
+    "login": {
+        "title": "Iniciar sesión",
+        "email": "Email",
+        "password": "Contraseña",
+        "button": "Iniciar sesión",
+        "link": "¿No tienes una cuenta?",
+        "link2": "Regístrate ahora!",
+        "success": "¡Bienvenido de nuevo!",
+        "placeholders": {
+            "email": "Ingresa tu email",
+            "password": "Ingresa tu contraseña"
+        }
+    },
+    "register": {
+        "title": "Registro",
+        "name": "Nombre",
+        "email": "Email",
+        "password": "Contraseña",
+        "password-confirmation": "Confirmar contraseña",
+        "button": "Registrarse",
+        "link": "¿Ya tienes una cuenta?",
+        "link2": "Iniciar sesión",
+        "placeholders": {
+            "name": "Ingresa tu nombre",
+            "email": "Ingresa tu email",
+            "password": "Ingresa tu contraseña",
+            "password-confirmation": "Confirma tu contraseña",
+            "avatar": "Ingresa la URL de tu avatar"
+        },
+        "success": "Welcome to Coderine!"
+    },
+    "errors": {
+        "credentials": "Las credenciales no coinciden con nuestros registros.",
+        "wrong-fields": "Algunos campos no son válidos."
+    },
+    "playground": {
+        "alert": {
+            "title": "Guardar el componente",
+            "text": "Tienes cambios sin guardar. ¿Quieres guardarlos?, asigna un nombre al componente.",
+            "save": "Guardar",
+            "success": "El componente se ha guardado correctamente.",
+            "error": "El componente no se ha podido guardar."
+        }
+    }
+}

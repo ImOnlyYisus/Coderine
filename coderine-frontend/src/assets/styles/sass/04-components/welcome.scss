@@ -1,0 +1,67 @@
+.welcome{
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+
+    .welcome__title{
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        line-height: 1.2;
+        color: $buttons-background-color;
+    }
+
+    .welcome__subtitle{
+        font-size: 2.5rem;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        line-height: 1.2;
+        color: $buttons-background-color;
+        position: relative;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 40%;
+            right: 18%;
+            transform: translateY(-50%);
+            height: 0.5rem;
+            background: url(/images/favicon.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .welcome__paragraph--question{
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        line-height: 1.2;
+        color: $buttons-background-color;
+    }
+
+    .welcome__paragraph{
+        font-size: 0.9rem;
+        font-weight: 400;
+        text-align: left;
+        line-height: 1.2;
+
+        strong{
+            font-weight: 900;
+        }
+    }
+
+    .welcome__links{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 2rem;
+    }
+}

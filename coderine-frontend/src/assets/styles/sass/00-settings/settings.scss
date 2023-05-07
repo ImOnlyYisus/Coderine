@@ -6,7 +6,37 @@ $code-active-border-color: #3ab7ff;
 $header-background-color: #212a3e;
 $header-text-color: #f8f8f2;
 
+/* HEADER GEBNERIC */
+$header-generic-text-color: #212a3e;
+$header-generic-text-hover-color: #03c988;
+$header-generic-text-second-hover-color:#1c82ad;
+$buttons-background-color: #212a3e;
+$buttons-background-color-hover: #00337c;
+
+$error-color: #ff6d6d;
+
 @font-face {
     font-family: 'Fira Code';
-    src: url(../../../fonts/FiraCode-VariableFont_wght.ttf);
+    src: url(/fonts/FiraCode-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url(/fonts/JosefinSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(/fonts/montserrat/Montserrat-Regular.otf);
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(/fonts/Quicksand-VariableFont_wght.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf);
 }

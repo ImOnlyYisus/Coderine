@@ -1,0 +1,45 @@
+@mixin generic__button($background,$color, $border-color, $hover-background-color){
+    padding: 0.7rem 1rem;
+    background: $background;
+    border-radius: 0.2rem;
+    color: $color;
+    position: relative;
+    transition: 0.3s ease all;
+
+    &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 3px;
+        left: -4px;
+        border-radius: 0.2rem;
+        border: 1px solid $border-color;
+        transition: 0.3s ease all;
+        transform: rotate(-2deg);
+    }
+
+    &:hover{
+        background: $hover-background-color;
+
+        &::after{
+            top: -3px;
+            left: 4px;
+            transform: rotate(0deg);
+        }
+    }
+
+    
+}
+
+.generic__button--primary{
+    @include generic__button($buttons-background-color, white, $header-generic-text-hover-color, $buttons-background-color-hover);
+}
+
+.generic__button--secondary{
+    @include generic__button($header-generic-text-hover-color,white, $buttons-background-color, $buttons-background-color-hover);
+}
+
+.generic__button--terciary{
+    @include generic__button($header-generic-text-second-hover-color,white, $header-generic-text-hover-color, $buttons-background-color-hover);
+}

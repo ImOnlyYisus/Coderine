@@ -1,7 +1,7 @@
 <template>
     <div class="playground__grid">
         <header class="playground__header">
-            <HeaderPlayground />
+            <HeaderPlayground :canSave="canSave" @save="onSave" :canEdit="canEdit" />
         </header>
         <main class="playground__main">
             <section class="playground__section">
@@ -10,12 +10,14 @@
                         <Split direction="vertical">
                             <SplitArea :size="50" :minSize="150">
                                 <div class="playground__views playground__views--html">
-                                    <CodeEditor :language="'html'" :code="htmlCode" @update:code="handlerUpdateCode" />
+                                    <MonacoEditor :options="options" language="html" v-model:value="htmlCode">
+                                    </MonacoEditor>
                                 </div>
                             </SplitArea>
                             <SplitArea :size="50" :minSize="150">
                                 <div class="playground__views playground__views--css">
-                                    <CodeEditor :language="'css'" :code="cssCode" @update:code="handlerUpdateCode" />
+                                    <MonacoEditor :options="options" language="css" v-model:value="cssCode">
+                                    </MonacoEditor>
                                 </div>
                             </SplitArea>
                         </Split>
@@ -24,7 +26,8 @@
                         <Split direction="vertical" :minSize="150">
                             <SplitArea :size="50" :minSize="150">
                                 <div class="playground__views playground__views--js">
-                                    <CodeEditor :language="'javascript'" :code="jsCode" @update:code="handlerUpdateCode" />
+                                    <MonacoEditor :options="options" language="javascript" v-model:value="jsCode">
+                                    </MonacoEditor>
                                 </div>
                             </SplitArea>
                             <SplitArea :size="50" :minSize="150">
@@ -45,19 +48,88 @@ import { ref, watch, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
 import { encode, decode } from 'js-base64'
 import html from '../utils/htmlCode.js'
-import CodeEditor from '../components/CodeEditor.vue'
 import HeaderPlayground from '../components/HeaderPlayground.vue'
+import MonacoEditor from 'monaco-editor-vue3'
+import { useComponentsStore } from '../stores/components'
+import { useAuthStore } from '../stores/auth'
+import { saveAlert } from '../utils/sweetAlerts'
+import { useI18n } from 'vue-i18n'
+import { toastify } from '../utils/toastify'
+import { v4 as uuidv4 } from 'uuid'
 
+const { t } = useI18n()
 
 const htmlCode = ref('')
 const cssCode = ref('')
 const jsCode = ref('')
 const renderHtml = ref('')
+const canSave = ref(false)
+const canEdit = ref(false)
 
+const options = {
+    theme: 'vs-dark',
+    automaticLayout: true,
+    acceptSuggestionOnEnter: 'on',
+    scrollbar: {
+        verticalScrollbarSize: 10,
+        horizontalScrollbarSize: 10,
+    },
+    autoClosingBrackets: 'always',
+    autoClosingQuotes: 'always',
+    autoIndent: 'full',
+    autoSurround: 'languageDefined',
+    cursorBlinking: 'smooth',
+    cursorSmoothCaretAnimation: true,
+    cursorStyle: 'line',
+    folding: true,
+    formatOnPaste: true,
+    formatOnType: true,
 
+    minimap: {
+        enabled: false,
+    },
+    quickSuggestions: true,
+    quickSuggestionsDelay: 100,
+    renderIndentGuides: true,
+    renderLineHighlight: 'all',
+    renderWhitespace: 'none',
+    helpActions: true,
+    fontSize: 16,
+    padding: {
+        top: 10,
+        bottom: 10,
+    },
+    wordWrap: 'on',
+    wordWrapColumn: 80,
+}
 const router = useRouter();
+const uuid = router.currentRoute.value.params.componentId || uuidv4();
+
+const userId = ref('');
+userId.value = useAuthStore().user.id;
+
+if (router.currentRoute.value.name === 'Playground') {
+    router.push({ name: 'PlaygroundComponent', params: { componentId: uuid, user: userId.value } });
+    canEdit.value = true;
+}
+
+if (router.currentRoute.value.name === 'PlaygroundTemplate') {
+    const { allComponents } = useComponentsStore();
+    if (allComponents) {
+        const component = allComponents.find(({ id }) => id === router.currentRoute.value.params.componentId);
+        if (component) {
+            if (component.user_id === useAuthStore().user.id) {
+                canEdit.value = true;
+            }
+        }
+    }
+}
+
+
 onBeforeMount(() => {
+
     const urlBase64 = router.currentRoute.value.params.htmlTemplate;
+    userId.value = router.currentRoute.value.params.user;
 
     if (urlBase64) {
         const [htmlBase64, cssBase64, jsBase64] = urlBase64.split('|');
@@ -68,36 +140,7 @@ onBeforeMount(() => {
     }
 
     renderHtml.value = html(htmlCode.value, cssCode.value, jsCode.value);
-})
-
-/* const API_SHORTEN_URL = 'https://api.shrtco.de/v2/shorten?url=';
-fetch(`${API_SHORTEN_URL}${window.location.origin}/playground/${renderBase64}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data) {
-                //router.push({ name: 'PlaygroundTemplate', params: { htmlTemplate: renderBase64 } });
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        }); */
-
-const handlerUpdateCode = (code, language) => {
-    switch (language) {
-        case 'html':
-            htmlCode.value = code;
-            break;
-        case 'css':
-            cssCode.value = code;
-            break;
-        case 'javascript':
-            jsCode.value = code;
-            break;
-        default:
-            break;
-    }
-}
+});
 
 watch([htmlCode, cssCode, jsCode], () => {
     renderHtml.value = html(htmlCode.value, cssCode.value, jsCode.value);
@@ -105,5 +148,47 @@ watch([htmlCode, cssCode, jsCode], () => {
     const renderBase64 = `${encode(htmlCode.value)}|${encode(cssCode.value)}|${encode(jsCode.value)}`;
 
     router.push({ name: 'PlaygroundTemplate', params: { htmlTemplate: renderBase64 } });
+
+
+    canSave.value = true;
 })
+
+const onSave = () => {
+    if (!canSave.value) return;
+
+    canSave.value = false;
+    const renderBase64 = `${encode(htmlCode.value)}|${encode(cssCode.value)}|${encode(jsCode.value)}`;
+    useComponentsStore().getComponentById(uuid)
+        .then((component) => {
+            useComponentsStore().updateComponent(component)
+                .then(() => {
+                    toastify(t('playground.alert.success'), 'success');
+                })
+                .catch(() => {
+                    toastify(t('playground.alert.error'), 'error');
+                })
+        }
+        ).catch(() => {
+            saveAlert(t('playground.alert.title'), t('playground.alert.text'), t('playground.alert.save'))
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        if (result.value) {
+                            const component = {
+                                id: uuid,
+                                name: result.value,
+                                code: renderBase64,
+                            };
+
+                            useComponentsStore().saveComponent(component)
+                                .then(() => {
+                                    toastify(t('playground.alert.success'), 'success');
+                                })
+                                .catch(() => {
+                                    toastify(t('playground.alert.error'), 'error');
+                                })
+                        }
+                    }
+                })
+        });
+}
 </script>

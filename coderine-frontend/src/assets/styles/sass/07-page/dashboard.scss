@@ -1,0 +1,14 @@
+.dashboard__section{
+    max-width: 1240px;
+    margin: auto;
+    margin-top: 5rem;
+
+    .dashboard__section--title{
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        font-family: Josefin Sans, sans-serif;
+        padding: 1rem;
+        border-bottom: 1px solid $header-background-color;
+    }
+}

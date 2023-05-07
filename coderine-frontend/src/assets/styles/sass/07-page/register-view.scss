@@ -1,0 +1,119 @@
+.register{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Josefin Sans, sans-serif;
+    color: $header-text-color;
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: rgb(21,241,72);
+        background: linear-gradient(0deg, rgba(21,241,72,1) 0%, rgba(45,87,253,1) 100%);
+        opacity: 0.3;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: rgb(21,241,72);
+        background: url(/images/wave.svg) no-repeat bottom center/cover;
+        opacity: 0.7;
+    }
+
+
+
+    .register__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: $header-background-color;
+        padding: 1rem 2rem;
+        position: relative;
+        border-radius: 20px;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            background-color: $header-generic-text-hover-color;
+            width: 110%;
+            height: 110%;
+            z-index: -1;
+            transform: rotate(2deg);
+            border-radius: 20px;
+            box-shadow: 0 0 10px 2px $header-generic-text-hover-color;
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            background-color: $header-generic-text-hover-color;
+            width: 110%;
+            height: 110%;
+            z-index: -1;
+            transform: rotate(-2deg);
+            border-radius: 20px;
+            box-shadow: 0 0 10px 2px $header-generic-text-hover-color;
+        }
+
+        .register__title{
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .register__form{
+            display: flex;
+            flex-direction: column;
+
+            .register__form--label{
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                color: $header-generic-text-hover-color;
+            }
+        }
+
+        .register__form--link{
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: $header-generic-text-hover-color;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+
+            &:hover{
+                color: $header-generic-text-second-hover-color;
+            }
+        }
+    }
+    
+    .register__footer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+}

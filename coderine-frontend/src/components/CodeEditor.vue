@@ -20,7 +20,7 @@ const options = {
     theme: 'vs-dark',
     value: editor.value,
     automaticLayout: true,
-    acceptSuggestionOnEnter: 'on',
+    acceptSuggestionOnEnter: 'off',
     scrollbar: {
         verticalScrollbarSize: 10,
         horizontalScrollbarSize: 10,
@@ -55,6 +55,7 @@ const options = {
 }
 
 const handlerInput = () => {
+    console.log('editor.value', editor.value);
     emit('update:code', editor.value, props.language);
 }
 </script>

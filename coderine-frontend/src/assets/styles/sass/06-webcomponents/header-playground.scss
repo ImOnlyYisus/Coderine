@@ -13,11 +13,20 @@
         flex-direction: column;
         color: $header-text-color;
 
-        .header__playground__image {
+        .header__playground__image--logo {
             border: solid 2px $header-text-color;
             border-bottom-width: 7px;
             padding: 1rem;
             border-radius: 100%;
+        }
+
+        .header__playground__image--icons {
+            width: 3rem;
+            cursor: pointer;
+        }
+
+        .header__playground__image--disabled{
+            opacity: 0.5;
         }
     }
 }

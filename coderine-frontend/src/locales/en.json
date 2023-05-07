@@ -1,0 +1,71 @@
+{
+    "header-component": {
+        "links": {
+            "home": "Home",
+            "playground": "Playground",
+            "components": "Components",
+            "register": "Register",
+            "login": "Login",
+            "logout": "Logout"
+        },
+        "logout": {
+            "title": "Logout",
+            "message": "Are you sure you want to logout?",
+            "success": "You have been logged out successfully."
+        }
+    },
+    "welcome-component": {
+        "title": "Welcome to,",
+        "subtitle": "CODERINE",
+        "paragraph-1": "Are you an online content creator? Do you like sharing your creations with the community and receiving feedback?",
+        "paragraph-2": "Then, our application is perfect for you. In it, you can share your creative projects with other users and receive likes and comments in real-time.",
+        "paragraph-3": "Additionally, you can save your creations and view the history of your projects in one place.",
+        "paragraph-4": "In our application, you can express yourself creatively and receive validation and support from other users who share your interests.",
+        "paragraph-5": "Join our community and share your creations with the world. Sign up now and start sharing your projects with a global audience!",
+        "button": "Get started now!"
+    },
+    "login": {
+        "title": "Login here",
+        "email": "Email",
+        "password": "Password",
+        "button": "Login",
+        "link": "Don't have an account?",
+        "link2": "Register now!",
+        "success": "Welcome back!",
+        "placeholders": {
+            "email": "Enter your email",
+            "password": "Enter your password"
+        }
+    },
+    "register": {
+        "title": "Register here",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "password-confirmation": "Confirm password",
+        "button": "Register",
+        "link": "Already have an account?",
+        "link2": "Login now!",
+        "placeholders": {
+            "name": "Enter your name",
+            "email": "Enter your email",
+            "password": "Enter your password",
+            "password-confirmation": "Confirm your password",
+            "avatar": "Enter your avatar URL"
+        },
+        "success": "Welcome to Coderine!"
+    },
+    "errors": {
+        "credentials": "The provided credentials are incorrect.",
+        "wrong-fields": "The provided fields are incorrect."
+    },
+    "playground": {
+        "alert": {
+            "title": "Save component",
+            "text": "You have unsaved changes. Do you want to save them?, place a name for your component.",
+            "save": "Save",
+            "success": "Component saved successfully.",
+            "error": "An error occurred while saving the component."
+        }
+    }
+}
