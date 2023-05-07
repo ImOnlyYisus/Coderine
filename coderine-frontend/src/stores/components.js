@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia';
 import { useAuthStore } from './auth';
 import { ref } from 'vue';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const useComponentsStore = defineStore('components', () => {
     const uuid =ref('');
     const allComponents = ref([]);
     
     const saveComponent = (component) => {
-        return fetch ('http://localhost:8000/api/components', {
+        return fetch (`${BACKEND_URL}/api/components`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +36,7 @@ export const useComponentsStore = defineStore('components', () => {
     };
     
     const updateComponent = (component) => {
-        return fetch (`http://localhost:8000/api/components/${component.id}`, {
+        return fetch (`${BACKEND_URL}/api/components/${component.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ export const useComponentsStore = defineStore('components', () => {
 
     const getComponentById = (id) => {
         uuid.value = id;
-        return fetch (`http://localhost:8000/api/components/${uuid.value}`, {
+        return fetch (`${BACKEND_URL}/api/components${uuid.value}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +83,7 @@ export const useComponentsStore = defineStore('components', () => {
     };
 
     const getAllComponents = () => {
-        return fetch ('http://localhost:8000/api/components', {
+        return fetch (`${BACKEND_URL}/api/components`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +105,7 @@ export const useComponentsStore = defineStore('components', () => {
     };
 
     const likeComponent = (likeComponent) => {
-        return fetch (`http://localhost:8000/api/components/vote`, {
+        return fetch (`${BACKEND_URL}/api/components/vote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -126,7 +127,7 @@ export const useComponentsStore = defineStore('components', () => {
     };
 
     const postComment = (newMessage) => {
-        return fetch (`http://localhost:8000/api/components/comment`, {
+        return fetch (`${BACKEND_URL}/api/components/comment`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

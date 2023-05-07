@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import router from '@/router'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL_CSRF= import.meta.env.VITE_BACKEND_CSRF;
 
 import InvalidCredentialsException from '../exceptions/invalid-credentials.exception'
 import InvalidFieldsException from '../exceptions/invalid-fields.exception'
@@ -13,7 +15,7 @@ export const useAuthStore = defineStore('user', () => {
     const getAuthUser = () => {
         if (!token.value) return
 
-        fetch('http://localhost:8000/api/user', {
+        fetch(`${BACKEND_URL}/api/user`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ export const useAuthStore = defineStore('user', () => {
     }
 
     const register = (user, t) => {
-        return fetch('http://localhost:8000/sanctum/csrf-cookie', {
+        return fetch(BACKEND_URL_CSRF, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +44,7 @@ export const useAuthStore = defineStore('user', () => {
             },
             credentials: 'include'
         }).then(() => {
-            return fetch('http://localhost:8000/api/register', {
+            return fetch(`${BACKEND_URL}/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -69,7 +71,7 @@ export const useAuthStore = defineStore('user', () => {
     }
 
     const login = (email, password) => {
-        return fetch('http://localhost:8000/api/login', {
+        return fetch(`${BACKEND_URL}/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -95,7 +97,7 @@ export const useAuthStore = defineStore('user', () => {
     }
 
     const logout = () => {
-        fetch('http://localhost:8000/api/logout', {
+        fetch(`${BACKEND_URL}/api/logout`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
