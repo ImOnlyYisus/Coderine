@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Component;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -41,4 +43,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function components()
+    {
+        return $this->hasMany(Component::class);
+    }
+
+    //NM relationship
+    public function votes()
+    {
+        return $this->belongsToMany(Component::class, 'votes');
+    }
+
+    //NM relationship
+    public function comments()
+    {
+        return $this->belongsToMany(Component::class, 'comments');
+    }
 }

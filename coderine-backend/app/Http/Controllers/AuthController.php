@@ -21,8 +21,8 @@ class AuthController extends Controller
         if(!Auth::attempt($request->only(['email', 'password']))){
             return $this->error('', 'Invalid credentials', 401);
         }
-
-        $user = User::where('email', $request->email)->first();
+        //Get user with all components
+        $user = User::with('components')->where('email', $request->email)->first();
 
         return $this->success([
             'user' => $user,
@@ -39,6 +39,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'avatar' => $request->avatar,
         ]);
 
         return $this->success([
@@ -49,6 +50,8 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        return 'This is logout method';
+        $request->user()->currentAccessToken()->delete();
+
+        return $this->success([], 'Logged out successfully');
     }
 }

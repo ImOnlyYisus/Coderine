@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('components', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name');
-            $table->text('code');
+        Schema::create('votes', function (Blueprint $table) {
+            $table->string('component_id');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
+            $table->primary(['component_id', 'user_id']);
+            $table->foreign('component_id')->references('id')->on('components');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('components');
+        Schema::dropIfExists('votes');
     }
 };

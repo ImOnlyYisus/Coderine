@@ -20,11 +20,19 @@ use App\Http\Controllers\ComponentsController;
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
+
 //Protected routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::resource('/components', ComponentsController::class);
+
+    Route::get('/components', [ComponentsController::class, 'index']);
+    Route::post('/components', [ComponentsController::class, 'create']);
+    Route::put('/components/{id}', [ComponentsController::class, 'update']);
+    Route::get('/components/{id}', [ComponentsController::class, 'getById']);
+    Route::post('/components/vote', [ComponentsController::class, 'like']);
+    Route::post('/components/comment', [ComponentsController::class, 'postComment']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
 });
