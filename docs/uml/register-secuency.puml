@@ -1,0 +1,103 @@
+@startuml
+title Login diagram secuency
+box #LightBlue
+actor User
+end box
+
+box "Register page" #LimeGreen
+participant Register
+end box
+
+box "Store" #LimeGreen
+participant AuthStore
+end box
+
+box "Backend" #LimeGreen
+participant Api
+end box
+
+box "AuthController" #LimeGreen
+participant AuthController
+end box
+
+box "Database" #LimeGreen
+participant DB
+end box
+
+box "Login page" #LimeGreen
+participant Login
+end box
+
+User -> Register: Enter credentials and submit
+Register -> AuthStore: Use method register
+AuthStore -> Api: [GET] /api/crsf-cookie
+activate Api
+alt#Gold #Pink Failure Case
+Api -> AuthStore: Send 401 error
+deactivate Api
+AuthStore -> Register: Throw error
+Register -> Register: Catch error
+Register -> User: Show error
+end
+
+AuthStore -> Api: [GET] /api/crsf-cookie
+activate Api
+Api -> AuthStore: Send 200 OK
+deactivate Api
+AuthStore -> Api: [POST] Send inputs to endpoint /api/register
+activate Api
+Api -> AuthController: Send request
+alt#Gold #Pink Failure Case
+AuthController -> AuthController: Validate inputs
+AuthController -> Api: Send response with error
+Api -> AuthStore: Send 401 error
+deactivate Api
+AuthStore -> Register: Throw error
+Register -> Register: Catch error
+Register -> User: Show error
+end
+
+AuthStore -> Api: [POST] Send inputs to endpoint /api/register
+activate Api
+Api -> AuthController: Send request
+AuthController -> AuthController: Validate inputs
+AuthController -> DB: Send request to save user
+alt#Gold #Pink Failure Case
+DB-> DB: Check if user exists
+DB -> AuthController: Send response with error
+AuthController -> Api: Send response with error
+Api -> AuthStore: Send error
+deactivate Api
+AuthStore -> Register: Throw error
+Register -> Register: Catch error
+Register -> User: Show error
+end
+
+AuthStore -> Api: [POST] Send inputs to endpoint /api/register
+activate Api
+Api -> AuthController: Send request
+AuthController -> AuthController: Validate inputs
+AuthController -> DB: Send request to save user
+DB-> DB: Check if user exists
+alt#Gold #LightBlue Success case
+DB -> DB: Save user
+DB -> AuthController: Send response with user
+AuthController -> Api: Send response with user
+Api -> AuthStore: Send user
+deactivate Api
+AuthStore -> Login: Redirect to login page
+AuthStore -> Register: Throw Success
+Register -> User: Notify success
+end
+
+
+
+
+
+
+
+
+
+
+
+@enduml
