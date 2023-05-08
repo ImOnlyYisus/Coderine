@@ -67,6 +67,8 @@ export const useAuthStore = defineStore('user', () => {
                 .catch((error) => {
                     throw new InvalidFieldsException(error.message)
                 })
+        }).catch((error) => {
+            throw new Error(error.message)
         })
     }
 
