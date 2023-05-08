@@ -1,0 +1,55 @@
+@startuml
+title Home page sequence diagram
+box #LightBlue
+actor User
+end box
+
+box "Middleware" #LightCoral
+participant MiddlewareAuth
+end box
+
+box "Playground" #LightGreen
+User -> MiddlewareAuth: 1. User clicks on playground
+MiddlewareAuth -> MiddlewareAuth: 2. MiddlewareAuth checks if user is logged in
+alt#Gold #LightBlue Successful case
+    MiddlewareAuth -> Playground: Redirect to playground
+else #Pink Failure
+    MiddlewareAuth -> Login: Redirect to login page
+end
+end box
+
+box "Components" #LightGreen
+User -> MiddlewareAuth: 1. User clicks on components
+MiddlewareAuth ->x MiddlewareAuth: 2. MiddlewareAuth checks if user is logged in
+alt#Gold #LightBlue Successful case
+    MiddlewareAuth -> Components: Redirect to components
+else #Pink Failure
+    MiddlewareAuth -> Login: Redirect to login page
+end
+end box
+
+box "Home" #LightGreen
+User -> Home: 1. User clicks on home
+Home -> Home: 2. Home page is loaded
+end box
+
+box "Register" #LightSeaGreen
+User -> Register: 1. User clicks on register
+Register -> Register: 2. Register page is loaded
+end box
+
+box "Login" #LightSeaGreen
+participant Login
+end box
+
+box "Login" #LightGreen
+User -> Login: 1. User clicks on login
+Login -> Login: 2. Login page is loaded
+end box
+
+box "Language" #LightGreen
+User -> Language: 1. User clicks on language
+Language -> Language: 2. Language page is changed
+end box
+
+@enduml
