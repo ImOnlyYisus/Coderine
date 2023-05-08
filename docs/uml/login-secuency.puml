@@ -1,0 +1,80 @@
+@startuml
+title Login diagram secuency
+box #LightBlue
+actor User
+end box
+
+box "Login page" #LimeGreen
+participant Login
+end box
+
+box "Store" #LimeGreen
+participant AuthStore
+end box
+
+box "Backend" #LimeGreen
+participant Api
+end box
+
+box "AuthController" #LimeGreen
+participant AuthController
+end box
+
+box "Database" #LimeGreen
+participant DB
+end box
+
+box "Home page" #LimeGreen
+participant Home
+end box
+
+User -> Login: Enter credentials
+Login -> AuthStore: Use method login
+AuthStore -> Api: [POST] inputs to the endpoint /api/login
+activate Api
+Api -> AuthController: Send request
+AuthController -> AuthController: Validate inputs
+alt#Gold #Pink Failure case
+    AuthController -> Api: Send error response
+    Api -> AuthStore: Send 401 error
+    deactivate Api
+    AuthStore-> Login: Throw error
+    Login -> Login: Catch error
+    Login -> User: Show error
+end
+
+AuthStore -> Api: [POST] inputs to the endpoint /api/login
+activate Api
+AuthController -> DB: Check if user and password are correct
+DB -> DB: Check if user and password are correct
+DB -> AuthController: Send response
+alt#Gold #Pink Failure case
+    AuthController -> Api: Send error response
+    Api -> AuthStore: Send 401 error
+    deactivate Api
+    AuthStore-> Login: Throw error
+    Login -> Login: Catch error
+    Login -> User: Show error
+end
+
+AuthStore -> Api: [POST] inputs to the endpoint /api/login
+activate Api
+AuthController -> DB: Check if user and password are correct
+DB -> DB: Check if user and password are correct
+DB -> AuthController: Send response
+alt#Gold #LightBlue Success case
+    AuthController -> Api: Send success response
+    Api -> AuthStore: Send 200 success
+    deactivate Api
+    AuthStore-> AuthStore: Save token and user
+    AuthStore-> Login: Throw success
+    Login -> Home: Redirect to home page
+    Login -> User: Noify success
+end
+
+
+
+
+
+
+@enduml
