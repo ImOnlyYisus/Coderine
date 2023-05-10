@@ -31,4 +31,4 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
           cd coderine-frontend
-          scp -r . $SSH_USERNAME@$SSH_HOST:/var/www/test-pipline-frontend
+          scp -i $SSH_PRIVATE_KEY -r . $SSH_USERNAME@$SSH_HOST:/var/www/test-pipline-frontend
