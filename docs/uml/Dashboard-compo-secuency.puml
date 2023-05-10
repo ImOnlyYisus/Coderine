@@ -1,0 +1,68 @@
+@startuml
+title Playground diagram secuency
+box #LightBlue
+actor User
+end box
+
+box "Components page" #LimeGreen
+participant ComponentsPage
+end box
+
+box "Playground" #LimeGreen
+participant Playground
+end box
+
+box "Store" #LimeGreen
+participant ComponentsStore
+end box
+
+box "Backend" #LimeGreen
+participant Api
+participant ComponentController
+end box
+
+
+box "Database" #LimeGreen
+participant DB
+end box
+
+User -> ComponentsPage : Go to /components
+alt#Gold #LightGray Case components from store are empty
+ComponentsPage -> ComponentsStore : Use getComponents()
+ComponentsStore -> ComponentsPage : Return empty array
+ComponentsPage -> ComponentsStore: Use getComponents()
+ComponentsStore -> Api : [GET] /components
+ComponentsPage -> User: Show loading skeleton
+activate Api
+Api -> ComponentController: Use index to get all components
+ComponentController -> DB: Get all components
+DB -> ComponentController: Return all components
+ComponentController -> Api: Return all components
+deactivate Api
+Api -> ComponentsStore: Return all components
+ComponentsStore -> ComponentsPage: Return all components
+ComponentsPage -> User: Disable loading skeleton
+ComponentsPage -> User: Show components
+else #LightSlateGray Case components from store are not empty
+ComponentsPage -> ComponentsStore: Get components
+ComponentsStore -> ComponentsPage: Return components
+ComponentsPage -> User: Show components
+end alt
+
+User -> ComponentsPage : Click on edit button of component
+ComponentsPage -> Playground : Redirect to /playground/:userId/:componentId/:templaate
+
+User -> ComponentsPage : Click on like button of component
+ComponentsPage -> ComponentsStore : Use likeComponent()
+ComponentsStore -> Api : [POST] /components/like
+activate Api
+Api -> ComponentController : Use like to like component
+ComponentController -> DB : Like component
+DB -> ComponentController : Send response
+ComponentController -> Api : Return component
+Api -> ComponentsStore : Return component
+deactivate Api
+ComponentsStore -> ComponentsPage : Return component
+ComponentsPage -> User : Update like state of component
+
+@enduml
