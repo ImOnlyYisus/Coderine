@@ -29,12 +29,8 @@ jobs:
           if [ ! -d "coderine-frontend/dist" ]; then
             echo "The dist folder does not exist. Run 'npm run build' first."
             exit 1
-          fi
+          first."
 
-  coderine-front-deploy:
-    runs-on: ubuntu-latest
-    needs: coderine-front-dependecies
-    steps:
       - name: Deploy to server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
