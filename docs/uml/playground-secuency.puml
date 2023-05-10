@@ -1,0 +1,102 @@
+@startuml
+title Playground diagram secuency
+box #LightBlue
+actor User
+end box
+
+box "Playground page" #LimeGreen
+participant Playground
+end box
+
+box "Store" #LimeGreen
+participant AuthStore
+participant ComponentsStore
+end box
+
+box "Router" #LimeGreen
+participant Router
+end box
+
+box "Backend" #LimeGreen
+participant Api
+participant ComponentController
+end box
+
+
+box "Database" #LimeGreen
+participant DB
+end box
+
+User -> Playground: Enter playground
+Playground -> AuthStore: Get user from storage
+AuthStore -> Playground: Send user
+Playground -> Router: Get path
+Router -> Playground: Send path
+alt#Gold #LightBlue If path is /playground
+Playground -> Playground: Generate new uuid for component
+Playground -> Router: Change to /playground/:userId/:uuid
+Router -> Playground: Stablish new path
+end alt
+
+alt#Gold #LightBlue If path is /playground/:userId/:uuid/:template
+Playground -> Router: Get params from url
+Router -> Playground: Send params
+Playground -> Playground: Change template with the params
+end alt
+
+User -> Playground: User write code
+Playground -> Router: Send code on base64 format to change url
+Router -> Playground: Send new url /playground/:userId/:uuid/:template
+
+User -> Playground: User click on save button
+Playground -> Playground: check if user have changes
+Playground -> ComponentsStore: Use method to getById
+ComponentsStore -> Api: [GET] /components/:id
+activate Api
+Api -> ComponentController: Search component by id
+ComponentController -> DB: Search component by id
+DB -> Api: Send respose
+alt#Gold #LightSalmon If component does not exist
+Api -> ComponentsStore: Send error
+deactivate Api
+ComponentsStore -> Playground: Throw error
+Playground -> ComponentsStore: Use method to create
+ComponentsStore -> Api: [POST] /components
+activate Api
+Api -> ComponentController: Create component
+ComponentController-> ComponentController: Check request body
+    alt#Gold #Pink If request body is not valid
+    ComponentController -> Api: Send error
+    deactivate Api
+    ComponentsStore -> Playground: Throw error
+    Playground -> User : Notify error
+    end alt
+ComponentController -> DB: Create component
+DB -> Api: Send respose
+Api -> ComponentsStore: Send component
+deactivate Api
+ComponentsStore -> ComponentsStore: Save component
+ComponentsStore -> Playground: Send component
+Playground -> User : Notify component saved
+
+else #LightYellow If component exist
+Playground -> ComponentsStore: Use method to update
+ComponentsStore -> Api: [PUT] /components/:id
+activate Api
+Api -> ComponentController: Update component
+ComponentController-> ComponentController: Check if component exist
+    alt#Gold #Pink If component does not exist
+    ComponentController -> Api: Send error
+    deactivate Api
+    ComponentsStore -> Playground: Throw error
+    Playground -> User : Notify error
+    end alt
+ComponentController-> DB: Update component
+DB -> Api: Send respose
+Api -> ComponentsStore: Send component
+deactivate Api
+ComponentsStore -> ComponentsStore: Save component
+ComponentsStore -> Playground: Send component
+Playground -> User : Notify component saved
+end alt
+@enduml
