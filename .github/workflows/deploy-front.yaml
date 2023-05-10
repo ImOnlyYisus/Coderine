@@ -1,0 +1,34 @@
+name: Deploy frontend to server
+
+on:
+  push:
+    paths:
+      - "coderine-frontend/**"
+    branches:
+      - main
+
+jobs:
+  coderine-front-dependecies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          cd coderine-frontend
+          npm install
+          npm run build
+
+  coderine-front-deploy:
+    runs-on: ubuntu-latest
+    needs: coderine-front-dependecies
+    steps:
+      - name: Deploy to server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          cd coderine-frontend/dist
+          scp -r . $SSH_USERNAME@$SSH_HOST:/var/www/test-pipline-frontend
