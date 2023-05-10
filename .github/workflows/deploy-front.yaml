@@ -21,8 +21,7 @@ jobs:
 
       - name: Build
         run: |
-          cd coderine-frontend
-          npm run Build
+          npm run build
 
       - name: Deploy to server
         env:
@@ -30,5 +29,5 @@ jobs:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
-          cd coderine-frontend
+          cd dist
           scp -r . $SSH_USERNAME@$SSH_HOST:/var/www/test-pipline-frontend
