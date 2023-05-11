@@ -33,5 +33,5 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
           SOURCE: coderine-frontend/dist/
-          TARGET: /var/www/coderine-front/
-          ARGS: "-rlgoDzvc -i -og --delete"
+          TARGET: /home/ubuntu/coderine-frontend
+          ARGS: "-rlgoDzvc -i --delete"
