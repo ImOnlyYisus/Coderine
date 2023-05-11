@@ -26,7 +26,7 @@ jobs:
           cd coderine-frontend
           npm run build
 
-      - name: 📂 Sync Production Config
+      - name: 📂 Sync dist folder to server
         uses: easingthemes/ssh-deploy@v4.0.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
