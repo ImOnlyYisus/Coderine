@@ -32,8 +32,8 @@ import { useAuthStore } from '@/stores/auth'
 import { toastify } from '@/utils/toastify'
 import { useI18n } from 'vue-i18n'
 
-const email = ref('test9@gmail.com')
-const password = ref('12345678')
+const email = ref('demo@demo.com')
+const password = ref('demo12345_')
 const error = ref(false);
 const { t } = useI18n();
 
