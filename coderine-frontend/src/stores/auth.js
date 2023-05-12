@@ -60,7 +60,6 @@ export const useAuthStore = defineStore('user', () => {
             body: JSON.stringify({ email, password })
         })
         .then((response) => {
-            console.log(response)
             if(response.status === 401){
                 throw new InvalidCredentialsException('Invalid credentials')
             }
