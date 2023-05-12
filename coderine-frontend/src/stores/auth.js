@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import router from '@/router'
+import { saveStorage, removeStorage } from '../composables/storage';
+
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const BACKEND_URL_CSRF= import.meta.env.VITE_BACKEND_CSRF;
 
@@ -11,29 +13,6 @@ export const useAuthStore = defineStore('user', () => {
     const user = ref('')
     const token = ref('')
     const isAutheticated = ref(false)
-
-    const getAuthUser = () => {
-        if (!token.value) return
-
-        fetch(`${BACKEND_URL}/api/user`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                Authorization: `Bearer ${token.value}`
-            },
-            credentials: 'include'
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                console.log(data)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
 
     const register = (user, t) => {
         return fetch(BACKEND_URL_CSRF, {
@@ -88,6 +67,8 @@ export const useAuthStore = defineStore('user', () => {
         })
         .then(({ data }) => {
             const { user: userApi, token: tokenApi } = data
+            saveStorage('user', userApi)
+            saveStorage('token', tokenApi)
             user.value = userApi
             token.value = tokenApi
             isAutheticated.value = true
@@ -99,28 +80,34 @@ export const useAuthStore = defineStore('user', () => {
     }
 
     const logout = () => {
+        const oldToken = token.value
+        const oldUser = user.value
+        const oldIsAutheticated = isAutheticated.value
+
+        user.value = ''
+        token.value = ''
+        isAutheticated.value = false
+        removeStorage('user')
+        removeStorage('token')
+        router.push('/')
+
         fetch(`${BACKEND_URL}/api/logout`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
-                Authorization: `Bearer ${token.value}`
+                Authorization: `Bearer ${oldToken}`
             },
             credentials: 'include'
         })
-            .then((response) => {
-                return response.json()
-            })
-            .then(() => {
-                user.value = ''
-                token.value = ''
-                isAutheticated.value = false
-                router.push('/')
-            })
             .catch((error) => {
-                console.log(error)
+                user.value = oldUser
+                token.value = oldToken
+                isAutheticated.value = oldIsAutheticated
+                router.push('/login')
+                throw new Error(error.message)
             })
     }
 
-    return { user, token, isAutheticated, login, logout, register, getAuthUser }
+    return { user, token, isAutheticated, login, logout, register}
 })
