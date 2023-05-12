@@ -61,6 +61,8 @@ const error = ref(false);
 
 const onSubmit = (event) => {
     event.preventDefault();
+    const { register } = useAuthStore();
+
     const user = {
         name: name.value,
         email: email.value,
@@ -69,7 +71,7 @@ const onSubmit = (event) => {
         avatar: avatar.value,
     };
 
-    useAuthStore().register(user, t)
+    register(user, t)
         .then(() => {
             error.value = false;
             toastify(t("register.success"), "success");

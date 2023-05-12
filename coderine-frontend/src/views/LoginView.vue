@@ -32,14 +32,17 @@ import { useAuthStore } from '@/stores/auth'
 import { toastify } from '@/utils/toastify'
 import { useI18n } from 'vue-i18n'
 
-const email = ref('demo@demo.com')
-const password = ref('demo12345_')
+const email = ref('demo@demo.com') //Demo user
+const password = ref('demo12345_') //Password of demo user
 const error = ref(false);
 const { t } = useI18n();
 
 const onLogin = (e) => {
     e.preventDefault();
-    useAuthStore().login(email.value, password.value)
+
+    const { login } = useAuthStore();
+
+    login(email.value, password.value)
         .then(() => {
             error.value = false;
             toastify(t("login.success"), "success");
