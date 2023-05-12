@@ -60,12 +60,14 @@ export const useAuthStore = defineStore('user', () => {
             body: JSON.stringify({ email, password })
         })
         .then((response) => {
+            console.log(response)
             if(response.status === 401){
                 throw new InvalidCredentialsException('Invalid credentials')
             }
             return response.json()
         })
-        .then(({ data }) => {
+        .then((e,{ data }) => {
+            console.log(e)
             const { user: userApi, token: tokenApi } = data
             saveStorage('user', userApi)
             saveStorage('token', tokenApi)
