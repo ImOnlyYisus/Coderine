@@ -260,7 +260,12 @@ ul {
           font-size: 1rem;
           font-weight: 600;
           overflow: hidden;
-          text-overflow: ellipsis; }
+          text-overflow: ellipsis;
+          width: 80px;
+          position: absolute;
+          right: 50%;
+          transform: translate(50%);
+          text-align: center; }
     .generic__header .header__container .header__language-selector .header__language-selector--button {
       position: relative;
       width: 50px;
