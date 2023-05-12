@@ -11,6 +11,7 @@
     "sass-transpile": "node-sass -w src/assets/styles/sass/import.scss -o src/assets/styles/css/"
   },
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "js-base64": "^3.7.5",
     "monaco-editor": "^0.37.1",
