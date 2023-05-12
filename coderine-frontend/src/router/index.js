@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView.vue'
 import DasboardView from '../views/DashboardView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import authMiddleware from '../middleware/auth.middleware.js'
+import checkStorage from '../middleware/check-storage.middleware'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,7 +61,7 @@ const router = createRouter({
         }
     ]
 })
-
+router.beforeEach(checkStorage)
 router.beforeEach(authMiddleware)
 
 export default router

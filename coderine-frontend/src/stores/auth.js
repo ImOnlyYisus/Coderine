@@ -66,8 +66,7 @@ export const useAuthStore = defineStore('user', () => {
             }
             return response.json()
         })
-        .then((e,{ data }) => {
-            console.log(e)
+        .then(({ data }) => {
             const { user: userApi, token: tokenApi } = data
             saveStorage('user', userApi)
             saveStorage('token', tokenApi)
