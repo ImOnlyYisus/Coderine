@@ -16,6 +16,14 @@ jobs:
       - name: 🚚 Get Latest Code
         uses: actions/checkout@v3
 
+      - name: 😈 Changes .env.example to .env
+        run: |
+          cd coderine-frontend/
+          mv .env.example .env
+          sed -i "s|VITE_BACKEND_CSRF=.*|VITE_BACKEND_CSRF=${{ secrets.VITE_BACKEND_CSRF }}|" .env
+          sed -i "s|VITE_BACKEND_URL=.*|VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }}|" .env
+          sed -i "s|VITE_ENCRYPTION_KEY=.*|VITE_ENCRYPTION_KEY=${{ secrets.VITE_ENCRYPTION_KEY }}|" .env
+
       - name: 🗃️ Instal dependencies
         run: |
           cd coderine-frontend
