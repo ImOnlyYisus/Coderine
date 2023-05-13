@@ -139,7 +139,7 @@ npm run preview
 
 ## 🎨Dashboard de componentes
 
-![Dashboard](../docs/uml/dashboard-compo-secuency.png)
+![Dashboard](../docs/uml/Dashboard-compo-secuency.png)
 
 
 
