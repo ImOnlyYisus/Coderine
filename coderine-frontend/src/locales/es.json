@@ -1,7 +1,7 @@
 {
     "header-component": {
         "links": {
-            "home": "Incio",
+            "home": "Inicio",
             "playground": "Playground",
             "components": "Componentes",
             "register": "Registro",
@@ -67,5 +67,8 @@
             "success": "El componente se ha guardado correctamente.",
             "error": "El componente no se ha podido guardar."
         }
+    },
+    "dashboard": {
+        "title": "Componentes de la comunidad"
     }
 }

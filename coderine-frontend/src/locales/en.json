@@ -67,5 +67,8 @@
             "success": "Component saved successfully.",
             "error": "An error occurred while saving the component."
         }
+    },
+    "dashboard": {
+        "title": "Community components"
     }
 }

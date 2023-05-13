@@ -1,7 +1,7 @@
 <template>
     <Header></Header>
     <section class="dashboard__section">
-        <h1 class="dashboard__section--title">Componentes de la comunidad</h1>
+        <h1 class="dashboard__section--title">{{ $t("dashboard.title") }}</h1>
         <CardComponent v-for="component in components" :key="component.id" :component="component" v-if="isLoaded"
             @postComment="updateComments" @likeComponent="updateLikes">
         </CardComponent>
