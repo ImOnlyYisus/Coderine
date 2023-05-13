@@ -140,7 +140,16 @@ Una vez tengamos todos los requisitos, tendremos que seguir los siguientes pasos
     #Clonar el repositorio con la rama main
     git clone --branch main [URL]
     ```
-2. **Levantar los contenedores**
+2. **Configurar el archivo .env**
+   - **En 📁 ./coderine-backend**
+        ```bash
+        cp .env.example .env
+        ```
+    - **En 📁 ./coderine-frontend**
+        ```bash
+        cp .env.example .env
+        ```
+3. **Levantar los contenedores**
     ```bash
     docker-compose up -d
     ```
