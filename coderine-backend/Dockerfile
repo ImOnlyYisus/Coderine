@@ -29,7 +29,7 @@ RUN composer install --no-scripts --no-autoloader
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer install --no-scripts --no-autoloader
 
-COPY . .
+COPY . ./
 
 RUN composer dump-autoload --optimize
 
