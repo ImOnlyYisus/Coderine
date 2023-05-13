@@ -7,7 +7,10 @@ export const toastify = (message, type = 'success', duration = 3000) => {
         close: true,
         gravity: 'top',
         position: 'center',
-        backgroundColor: type === 'success' ? '#00b09b' : '#f44336',
+        style: {
+            background: type === 'success' ? '#00b09b' : '#f44336',
+            color: '#fff',
+        },
         stopOnFocus: true,
         className: 'toastify'
     }).showToast()
