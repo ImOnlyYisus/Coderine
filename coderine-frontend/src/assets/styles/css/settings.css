@@ -1,22 +1,29 @@
 /* PLAYGROUND */
 /* HEADER GEBNERIC */
 @font-face {
-  font-family: 'Fira Code';
-  src: url(/fonts/FiraCode-VariableFont_wght.ttf); }
+    font-family: 'Fira Code';
+    src: url(/fonts/FiraCode-VariableFont_wght.ttf);
+}
 
 @font-face {
-  font-family: 'Josefin Sans';
-  src: url(/fonts/JosefinSans-VariableFont_wght.ttf); }
+    font-family: 'Josefin Sans';
+    src: url(/fonts/JosefinSans-VariableFont_wght.ttf);
+}
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url(/fonts/montserrat/Montserrat-Regular.otf); }
+    font-family: 'Montserrat';
+    src: url(/fonts/montserrat/Montserrat-Regular.otf);
+}
 
 @font-face {
-  font-family: 'Quicksand';
-  src: url(/fonts/Quicksand-VariableFont_wght.ttf);
-  font-weight: bold; }
+    font-family: 'Quicksand';
+    src: url(/fonts/Quicksand-VariableFont_wght.ttf);
+    font-weight: bold;
+}
 
 @font-face {
-  font-family: 'FontAwesome';
-  src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf); }
+    font-family: 'FontAwesome';
+    src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf),
+        url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf),
+        url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf);
+}

@@ -1,9 +1,9 @@
-.home-view__section{
+.home-view__section {
     height: 100vh;
     position: relative;
     overflow: hidden;
 
-    &::after{
+    &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -14,7 +14,7 @@
         z-index: 1;
     }
 
-    &::before{
+    &::before {
         content: '';
         position: absolute;
         top: 0;
@@ -27,7 +27,7 @@
         opacity: 0.7;
     }
 
-    .home-view__section--video{
+    .home-view__section--video {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -37,7 +37,7 @@
         filter: blur(3px);
     }
 
-    .home-view__section--content{
+    .home-view__section--content {
         width: 1204px;
         margin: auto;
         position: absolute;
@@ -51,14 +51,14 @@
         justify-content: center;
         gap: 3rem;
 
-        .home-view__image{
+        .home-view__image {
             width: 50%;
             filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.25));
         }
     }
 }
 
-.home-view__footer{
+.home-view__footer {
     position: absolute;
     bottom: 0;
     left: 0;

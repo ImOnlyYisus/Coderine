@@ -1,4 +1,4 @@
-@mixin generic__button($background,$color, $border-color, $hover-background-color){
+@mixin generic__button($background, $color, $border-color, $hover-background-color) {
     padding: 0.7rem 1rem;
     background: $background;
     border-radius: 0.2rem;
@@ -6,7 +6,7 @@
     position: relative;
     transition: 0.3s ease all;
 
-    &::after{
+    &::after {
         content: '';
         position: absolute;
         width: 100%;
@@ -19,27 +19,40 @@
         transform: rotate(-2deg);
     }
 
-    &:hover{
+    &:hover {
         background: $hover-background-color;
 
-        &::after{
+        &::after {
             top: -3px;
             left: 4px;
             transform: rotate(0deg);
         }
     }
-
-    
 }
 
-.generic__button--primary{
-    @include generic__button($buttons-background-color, white, $header-generic-text-hover-color, $buttons-background-color-hover);
+.generic__button--primary {
+    @include generic__button(
+        $buttons-background-color,
+        white,
+        $header-generic-text-hover-color,
+        $buttons-background-color-hover
+    );
 }
 
-.generic__button--secondary{
-    @include generic__button($header-generic-text-hover-color,white, $buttons-background-color, $buttons-background-color-hover);
+.generic__button--secondary {
+    @include generic__button(
+        $header-generic-text-hover-color,
+        white,
+        $buttons-background-color,
+        $buttons-background-color-hover
+    );
 }
 
-.generic__button--terciary{
-    @include generic__button($header-generic-text-second-hover-color,white, $header-generic-text-hover-color, $buttons-background-color-hover);
+.generic__button--terciary {
+    @include generic__button(
+        $header-generic-text-second-hover-color,
+        white,
+        $header-generic-text-hover-color,
+        $buttons-background-color-hover
+    );
 }

@@ -1,4 +1,4 @@
-.input--primary{
+.input--primary {
     width: 100%;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -8,17 +8,17 @@
     font-weight: 700;
     transition: all 0.3s ease-in-out;
 
-    &:focus{
+    &:focus {
         outline: none;
         border: 1px solid $header-generic-text-second-hover-color;
     }
 }
 
-.input--error{ 
+.input--error {
     border-color: $error-color;
     color: $error-color;
-    
-    &::placeholder{
+
+    &::placeholder {
         color: $error-color;
     }
 }

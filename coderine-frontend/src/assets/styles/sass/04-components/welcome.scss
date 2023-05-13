@@ -1,8 +1,8 @@
-.welcome{
+.welcome {
     font-family: 'Montserrat', sans-serif;
     width: 50%;
 
-    .welcome__title{
+    .welcome__title {
         font-size: 3rem;
         font-weight: 700;
         text-align: left;
@@ -12,7 +12,7 @@
         color: $buttons-background-color;
     }
 
-    .welcome__subtitle{
+    .welcome__subtitle {
         font-size: 2.5rem;
         font-weight: 900;
         text-align: center;
@@ -22,7 +22,7 @@
         color: $buttons-background-color;
         position: relative;
 
-        &::after{
+        &::after {
             content: '';
             position: absolute;
             top: 40%;
@@ -37,7 +37,7 @@
         }
     }
 
-    .welcome__paragraph--question{
+    .welcome__paragraph--question {
         font-size: 0.9rem;
         font-weight: 600;
         text-align: left;
@@ -47,18 +47,18 @@
         color: $buttons-background-color;
     }
 
-    .welcome__paragraph{
+    .welcome__paragraph {
         font-size: 0.9rem;
         font-weight: 400;
         text-align: left;
         line-height: 1.2;
 
-        strong{
+        strong {
             font-weight: 900;
         }
     }
 
-    .welcome__links{
+    .welcome__links {
         margin-top: 1rem;
         display: flex;
         justify-content: space-evenly;

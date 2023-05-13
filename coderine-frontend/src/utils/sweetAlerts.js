@@ -1,6 +1,6 @@
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
-export const confirmCancel = (title,text) => {
+export const confirmCancel = (title, text) => {
     return Swal.fire({
         title: title,
         text: text,
@@ -9,11 +9,11 @@ export const confirmCancel = (title,text) => {
         imageAlt: 'Logo coderine',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33'
-    })
-}
+        cancelButtonColor: '#d33',
+    });
+};
 
-export const saveAlert = (title,text,save) => {
+export const saveAlert = (title, text, save) => {
     return Swal.fire({
         title: title,
         text: text,
@@ -22,9 +22,9 @@ export const saveAlert = (title,text,save) => {
         imageAlt: 'Logo coderine',
         input: 'text',
         inputAttributes: {
-            autocapitalize: 'On'
+            autocapitalize: 'On',
         },
         showCancelButton: true,
         confirmButtonText: save,
-    })
-}
+    });
+};

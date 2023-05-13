@@ -1,15 +1,19 @@
 .playground__main {
-  height: 100vh;
-  width: 100vw; }
-  .playground__main .playground__section {
+    height: 100vh;
+    width: 100vw;
+}
+.playground__main .playground__section {
     height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr; }
-    .playground__main .playground__section .playground__views {
-      height: 100%;
-      width: 100%; }
-      .playground__main .playground__section .playground__views .playground__code {
-        height: 100%;
-        width: 100%; }
+    grid-template-rows: 1fr 1fr;
+}
+.playground__main .playground__section .playground__views {
+    height: 100%;
+    width: 100%;
+}
+.playground__main .playground__section .playground__views .playground__code {
+    height: 100%;
+    width: 100%;
+}

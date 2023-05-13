@@ -1,4 +1,4 @@
-footer{
+footer {
     max-width: 1240px;
     margin: auto;
     display: flex;
@@ -7,18 +7,18 @@ footer{
     justify-content: center;
     gap: 3rem;
 
-    .footer__text{
+    .footer__text {
         font-family: Josefin Sans, sans-serif;
         font-style: normal;
         font-weight: 500;
         text-transform: uppercase;
         color: $header-generic-text-color;
 
-        a{
+        a {
             color: $header-generic-text-color;
             position: relative;
 
-            &::after{
+            &::after {
                 content: '';
                 position: absolute;
                 bottom: -2px;

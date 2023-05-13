@@ -1,9 +1,9 @@
-.generic__header{
+.generic__header {
     position: fixed;
     top: 0;
     width: 100vw;
     z-index: 100;
-    .header__container{
+    .header__container {
         max-width: 1240px;
         margin: 0 auto;
         display: flex;
@@ -12,25 +12,25 @@
         font-family: 'Josefin Sans', sans-serif;
         padding: 1rem 0;
 
-        .header__logo{
+        .header__logo {
             height: 30px;
         }
 
-        .header__nav-links--left{
+        .header__nav-links--left {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 1.5rem;
             width: 30%;
 
-            a{
+            a {
                 text-transform: capitalize;
                 font-weight: 600;
                 color: $header-generic-text-color;
                 position: relative;
                 font-size: 1.2rem;
 
-                &::after{
+                &::after {
                     content: '';
                     position: absolute;
                     bottom: 0px;
@@ -42,7 +42,7 @@
                     z-index: -1;
                 }
 
-                &::before{
+                &::before {
                     content: '';
                     position: absolute;
                     bottom: 0px;
@@ -50,35 +50,34 @@
                     width: 0%;
                     height: 100%;
                     background-color: $header-generic-text-second-hover-color;
-                    transition: 0.3s  ease all;
+                    transition: 0.3s ease all;
                     z-index: -1;
                     transform: rotate(3deg);
                 }
 
-                &.router-link-active{
-                    &::after{
+                &.router-link-active {
+                    &::after {
                         width: 110%;
                     }
 
-                    &::before{
-                        width: 110%;
-                    }
-                }
-
-                &:hover{
-                    &::after{
-                        width: 110%;
-                    }
-
-                    &::before{
+                    &::before {
                         width: 110%;
                     }
                 }
 
+                &:hover {
+                    &::after {
+                        width: 110%;
+                    }
+
+                    &::before {
+                        width: 110%;
+                    }
+                }
             }
         }
 
-        .header__nav-links-right{
+        .header__nav-links-right {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -86,11 +85,11 @@
             gap: 1rem;
             width: 25%;
 
-            .header__user{
+            .header__user {
                 width: 2.5rem;
                 height: 2.5rem;
                 position: relative;
-                .header__user--avatar{
+                .header__user--avatar {
                     width: 100%;
                     height: 100%;
                     border-radius: 50%;
@@ -98,7 +97,7 @@
                     border: solid 1px $header-generic-text-color;
                 }
 
-                .header__user--name{
+                .header__user--name {
                     margin: 0;
                     color: $header-generic-text-color;
                     font-size: 1rem;
@@ -114,9 +113,8 @@
             }
         }
 
-        .header__language-selector{
-            
-            .header__language-selector--button{
+        .header__language-selector {
+            .header__language-selector--button {
                 position: relative;
                 width: 50px;
                 height: 25px;
@@ -124,7 +122,7 @@
                 box-shadow: 0 0 0 1px #00000049;
                 border-radius: 1rem;
 
-                &::after{
+                &::after {
                     content: '';
                     position: absolute;
                     top: 50%;
@@ -137,7 +135,7 @@
                     z-index: 1;
                 }
 
-                &::before{
+                &::before {
                     content: '';
                     position: absolute;
                     top: 50%;
@@ -150,7 +148,7 @@
                     z-index: 2;
                 }
 
-                .header__language-selector--checkbox{
+                .header__language-selector--checkbox {
                     position: relative;
                     width: 100%;
                     height: 100%;
@@ -161,7 +159,7 @@
                     z-index: 3;
                 }
 
-                .header__language-selector--knobs{
+                .header__language-selector--knobs {
                     position: absolute;
                     top: 0;
                     right: 0;
@@ -170,8 +168,8 @@
                     z-index: 2;
                     transition: 0.3s ease all;
 
-                    &::before{
-                        content: "";
+                    &::before {
+                        content: '';
                         background-size: 70%;
                         position: absolute;
                         top: 50%;
@@ -195,7 +193,7 @@
                     }
                 }
 
-                .header__language-selector--layer{
+                .header__language-selector--layer {
                     position: absolute;
                     top: 0;
                     right: 0;
@@ -209,12 +207,12 @@
                     transition: 0.3s ease all;
                 }
 
-                .header__language-selector--checkbox:checked+.header__language-selector--knobs{
-                    content: "";
+                .header__language-selector--checkbox:checked + .header__language-selector--knobs {
+                    content: '';
                     left: 26px;
                 }
 
-                .header__language-selector--checkbox:checked ~ .header__language-selector--layer{
+                .header__language-selector--checkbox:checked ~ .header__language-selector--layer {
                     background-color: $header-generic-text-hover-color;
                 }
             }

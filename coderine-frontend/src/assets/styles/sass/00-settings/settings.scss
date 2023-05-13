@@ -9,7 +9,7 @@ $header-text-color: #f8f8f2;
 /* HEADER GEBNERIC */
 $header-generic-text-color: #212a3e;
 $header-generic-text-hover-color: #03c988;
-$header-generic-text-second-hover-color:#1c82ad;
+$header-generic-text-second-hover-color: #1c82ad;
 $buttons-background-color: #212a3e;
 $buttons-background-color-hover: #00337c;
 
@@ -38,5 +38,7 @@ $error-color: #ff6d6d;
 
 @font-face {
     font-family: 'FontAwesome';
-    src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf);
+    src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf),
+        url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf),
+        url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf);
 }

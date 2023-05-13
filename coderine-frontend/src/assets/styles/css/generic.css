@@ -2,17 +2,20 @@
   root
  ******/
 * {
-  font: inherit; }
+    font: inherit;
+}
 
 *,
 ::before,
 ::after {
-  box-sizing: border-box; }
+    box-sizing: border-box;
+}
 
 ::before,
 ::after {
-  text-decoration: inherit;
-  vertical-align: inherit; }
+    text-decoration: inherit;
+    vertical-align: inherit;
+}
 
 /***********
   margins
@@ -20,22 +23,31 @@
  **********/
 body,
 button,
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 input,
 nav,
 select,
 textarea,
-ul, ol, dl {
-  margin: 0;
-  padding: 0; }
+ul,
+ol,
+dl {
+    margin: 0;
+    padding: 0;
+}
 
 /*********
   hovers
  ********/
 a:hover,
 button:hover,
-input[type="submit"]:hover {
-  cursor: pointer; }
+input[type='submit']:hover {
+    cursor: pointer;
+}
 
 /**************
   decorations
@@ -45,17 +57,20 @@ button,
 input,
 select,
 textarea {
-  background: none;
-  color: inherit;
-  border: none;
-  text-transform: none;
-  text-decoration: none; }
-  a:focus,
-  button:focus,
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline: none; }
+    background: none;
+    color: inherit;
+    border: none;
+    text-transform: none;
+    text-decoration: none;
+}
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
 
 ul {
-  list-style: none; }
+    list-style: none;
+}

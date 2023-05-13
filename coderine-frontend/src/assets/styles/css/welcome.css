@@ -1,32 +1,38 @@
 .welcome {
-  font-family: 'Montserrat', sans-serif;
-  width: 50%; }
-  .welcome .welcome__title {
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+}
+.welcome .welcome__title {
     font-size: 3rem;
     font-weight: 700;
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-    line-height: 1.2; }
-  .welcome .is-typed {
+    line-height: 1.2;
+}
+.welcome .is-typed {
     font-size: 3rem;
     font-weight: 700;
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-    line-height: 1.2; }
-  .welcome .welcome__paragraph--question {
+    line-height: 1.2;
+}
+.welcome .welcome__paragraph--question {
     font-size: 0.9rem;
     font-weight: 600;
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-    line-height: 1.2; }
-  .welcome .welcome__paragraph {
+    line-height: 1.2;
+}
+.welcome .welcome__paragraph {
     font-size: 0.9rem;
     font-weight: 400;
     text-align: left;
-    line-height: 1.2; }
-    .welcome .welcome__paragraph strong {
-      font-weight: 900;
-      color: #212a3e; }
+    line-height: 1.2;
+}
+.welcome .welcome__paragraph strong {
+    font-weight: 900;
+    color: #212a3e;
+}

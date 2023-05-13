@@ -1,10 +1,10 @@
-.chat__wrapper{
+.chat__wrapper {
     height: 100%;
     border-radius: 5px;
     border: solid 1px $header-generic-text-hover-color;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
     position: relative;
-    &::after{
+    &::after {
         content: '';
         position: absolute;
         width: 100%;
@@ -17,59 +17,59 @@
         z-index: -1;
     }
 }
-.chat-component{
+.chat-component {
     background: $header-text-color;
     min-height: 357px;
     max-height: 357px;
     overflow: hidden;
     overflow-y: scroll;
 
-    .chat-component__box{
+    .chat-component__box {
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .chat-component__box--messages{
+        .chat-component__box--messages {
             height: 100%;
             display: flex;
             flex-direction: column-reverse;
             justify-content: flex-end;
             padding: 1rem;
-            .chat-component__box--messages--message{
+            .chat-component__box--messages--message {
                 display: flex;
                 align-items: center;
                 margin-bottom: 1rem;
 
-                &.me{
+                &.me {
                     justify-content: flex-end;
                 }
-                .chat-component__box--messages--message--avatar{
+                .chat-component__box--messages--message--avatar {
                     width: 3rem;
                     height: 3rem;
                     border-radius: 50%;
                     overflow: hidden;
                     margin-right: 1rem;
 
-                    img{
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
                     }
                 }
-                .chat-component__box--messages--message--content{
+                .chat-component__box--messages--message--content {
                     display: flex;
                     flex-direction: column;
-                    .chat-component__box--messages--message--content--name{
+                    .chat-component__box--messages--message--content--name {
                         font-weight: bold;
                         margin-bottom: 0.5rem;
 
-                        .message-time{
+                        .message-time {
                             font-weight: normal;
                             font-size: 0.8rem;
                             margin-left: 0.5rem;
                         }
                     }
-                    .chat-component__box--messages--message--content--text{
+                    .chat-component__box--messages--message--content--text {
                         background: #fff;
                         padding: 0.5rem 1rem;
                         border-radius: 1rem;
@@ -77,14 +77,10 @@
                     }
                 }
             }
-
         }
-
-        
     }
-    
 }
-.chat-component__input{
+.chat-component__input {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -94,7 +90,7 @@
     border-radius: 0px 0px 5px 5px;
     border-top: 1px solid $header-generic-text-hover-color;
 
-    input{
+    input {
         width: 100%;
         font-size: 1rem;
         font-family: Josefin Sans, sans-serif;

@@ -1,20 +1,20 @@
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth';
 
 export default function authMiddleware(to, from, next) {
-    const isAuthenticated = useAuthStore().isAutheticated
-    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
+    const isAuthenticated = useAuthStore().isAutheticated;
+    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
     if (requiresAuth && !isAuthenticated) {
-        next({ name: 'login' })
+        next({ name: 'login' });
     }
 
-    if(isAuthenticated && to.name === 'login') {
-        next({ name: 'Playground' })
+    if (isAuthenticated && to.name === 'login') {
+        next({ name: 'Playground' });
     }
 
-    if(isAuthenticated && to.name === 'register') {
-        next({ name: 'Playground' })
+    if (isAuthenticated && to.name === 'register') {
+        next({ name: 'Playground' });
     }
 
-    next()
-}   
+    next();
+}

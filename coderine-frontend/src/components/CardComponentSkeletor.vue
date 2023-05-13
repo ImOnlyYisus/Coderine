@@ -28,6 +28,6 @@
 </template>
 
 <script setup>
-import "vue-skeletor/dist/vue-skeletor.css";
-import { Skeletor } from "vue-skeletor";
+import 'vue-skeletor/dist/vue-skeletor.css';
+import { Skeletor } from 'vue-skeletor';
 </script>

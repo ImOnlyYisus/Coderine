@@ -1,16 +1,21 @@
 <template>
-    <MonacoEditor :options="options" :language="language" v-model:value="editor" @input="handlerInput">
+    <MonacoEditor
+        :options="options"
+        :language="language"
+        v-model:value="editor"
+        @input="handlerInput"
+    >
     </MonacoEditor>
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref } from 'vue'
-import MonacoEditor from 'monaco-editor-vue3'
+import { defineProps, defineEmits, ref } from 'vue';
+import MonacoEditor from 'monaco-editor-vue3';
 
 const props = defineProps({
     code: String,
     language: String,
-})
+});
 
 const editor = ref(props.code);
 
@@ -52,12 +57,12 @@ const options = {
     },
     wordWrap: 'on',
     wordWrapColumn: 80,
-}
+};
 
 const handlerInput = () => {
     console.log('editor.value', editor.value);
     emit('update:code', editor.value, props.language);
-}
+};
 </script>
 
 <style scoped></style>

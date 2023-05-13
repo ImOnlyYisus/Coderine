@@ -1,5 +1,4 @@
-
-.card--wrapper{
+.card--wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
     margin-bottom: 2rem;
@@ -13,7 +12,7 @@
         margin: 10px;
         position: relative;
 
-        .card-component__like{
+        .card-component__like {
             position: absolute;
             bottom: 1%;
             right: 20%;
@@ -23,18 +22,18 @@
             transition: all 0.3s ease-in-out;
             z-index: 2;
 
-            &:hover{
+            &:hover {
                 transform: scale(1.2);
             }
 
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }
 
-        &::after{
+        &::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -58,7 +57,7 @@
             -webkit-line-clamp: 1;
             white-space: nowrap;
         }
-        
+
         .card-component--picture {
             width: 100%;
             height: 200px;
@@ -66,16 +65,16 @@
             border-radius: 5px;
             background: white;
         }
-        
+
         .card-component--info {
             width: 100%;
             position: relative;
 
-            .card-component--info__logo{
+            .card-component--info__logo {
                 height: 10px;
             }
 
-            .card-component--info__edit{
+            .card-component--info__edit {
                 position: absolute;
                 bottom: 0;
                 right: 5%;
@@ -83,7 +82,7 @@
                 height: 20px;
                 cursor: pointer;
                 transition: all 0.3s ease-in-out;
-                &:hover{
+                &:hover {
                     transform: scale(1.2);
                 }
             }
@@ -93,14 +92,14 @@
                 border-top: 1px solid $header-text-color;
                 border-bottom: 1px solid $header-text-color;
                 padding: 0.3rem 0;
-                
+
                 .card-component--info__user--image {
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
                     object-fit: cover;
                 }
-            
+
                 .card-component--info__user--name {
                     font-size: 1rem;
                     font-weight: bold;
@@ -111,13 +110,13 @@
                     justify-content: center;
                     color: $header-text-color;
 
-                    img{
+                    img {
                         width: 20px;
                         height: 20px;
                     }
                 }
             }
-            .card-component--meta{
+            .card-component--meta {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -131,7 +130,7 @@
                     opacity: 0.7;
                 }
 
-                .card-component--meta__likes{
+                .card-component--meta__likes {
                     font-size: 0.8rem;
                     font-weight: bold;
                     color: $header-text-color;
@@ -141,7 +140,7 @@
                     align-items: center;
                     justify-content: center;
 
-                    img{
+                    img {
                         width: 20px;
                         height: 20px;
                         object-fit: cover;
@@ -149,7 +148,7 @@
                     }
                 }
 
-                .card-component--meta__post{
+                .card-component--meta__post {
                     font-size: 0.8rem;
                     font-weight: bold;
                     color: $header-text-color;
@@ -159,7 +158,7 @@
                     align-items: center;
                     justify-content: center;
 
-                    img{
+                    img {
                         width: 25px;
                         height: 25px;
                         object-fit: cover;
@@ -168,12 +167,5 @@
                 }
             }
         }
-        
     }
 }
-
-
-
-
-
-

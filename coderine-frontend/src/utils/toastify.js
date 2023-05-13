@@ -1,4 +1,4 @@
-import Toastify from 'toastify-js'
+import Toastify from 'toastify-js';
 
 export const toastify = (message, type = 'success', duration = 3000) => {
     Toastify({
@@ -12,6 +12,6 @@ export const toastify = (message, type = 'success', duration = 3000) => {
             color: '#fff',
         },
         stopOnFocus: true,
-        className: 'toastify'
-    }).showToast()
-}
+        className: 'toastify',
+    }).showToast();
+};

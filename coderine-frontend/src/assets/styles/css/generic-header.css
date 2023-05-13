@@ -1,107 +1,154 @@
 .generic__header {
-  position: sticky;
-  top: 0; }
-  .generic__header .header__container {
+    position: sticky;
+    top: 0;
+}
+.generic__header .header__container {
     max-width: 1240px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Josefin Sans', sans-serif;
-    padding: 1rem 0; }
-    .generic__header .header__container a {
-      text-transform: uppercase;
-      font-weight: 600; }
-    .generic__header .header__container .header__logo {
-      height: 30px; }
-    .generic__header .header__container .header__nav-links--left {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
-      width: 30%; }
-    .generic__header .header__container .header__nav-links-right {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      gap: 1rem;
-      width: 30%; }
-    .generic__header .header__container .header__language-selector .header__language-selector--button {
-      position: relative;
-      width: 50px;
-      height: 25px;
-      overflow: hidden; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 4%;
-        transform: translateY(-50%);
-        background: url(/images/es.svg) no-repeat center center;
-        background-size: 20px;
-        width: 20px;
-        height: 100%;
-        z-index: 1; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        transform: translateY(-50%);
-        background: url(/images/gb.svg) no-repeat center center;
-        background-size: 20px;
-        width: 20px;
-        height: 100%;
-        z-index: 2; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button .header__language-selector--checkbox {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-        opacity: 0;
-        cursor: pointer;
-        z-index: 3; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button .header__language-selector--knobs {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        transition: 0.3s ease all; }
-        .generic__header .header__container .header__language-selector .header__language-selector--button .header__language-selector--knobs::before {
-          content: "";
-          background-size: 70%;
-          position: absolute;
-          top: 50%;
-          left: 1px;
-          transform: translateY(-50%);
-          width: 23px;
-          height: 100%;
-          color: #fff;
-          font-size: 10px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 1;
-          padding: 9px 4px;
-          background: #ebf7fc;
-          border-radius: 50%;
-          transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button .header__language-selector--layer {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 100px;
-        width: 100%;
-        background-color: #ebf7fc;
-        transition: 0.3s ease all;
-        z-index: 1;
-        transition: 0.3s ease all; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button .header__language-selector--checkbox:checked + .header__language-selector--knobs {
-        content: "";
-        left: 26px; }
-      .generic__header .header__container .header__language-selector .header__language-selector--button .header__language-selector--checkbox:checked ~ .header__language-selector--layer {
-        background-color: #ebf7fc; }
+    padding: 1rem 0;
+}
+.generic__header .header__container a {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.generic__header .header__container .header__logo {
+    height: 30px;
+}
+.generic__header .header__container .header__nav-links--left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    width: 30%;
+}
+.generic__header .header__container .header__nav-links-right {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 30%;
+}
+.generic__header .header__container .header__language-selector .header__language-selector--button {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    overflow: hidden;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+    background: url(/images/es.svg) no-repeat center center;
+    background-size: 20px;
+    width: 20px;
+    height: 100%;
+    z-index: 1;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background: url(/images/gb.svg) no-repeat center center;
+    background-size: 20px;
+    width: 20px;
+    height: 100%;
+    z-index: 2;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button
+    .header__language-selector--checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button
+    .header__language-selector--knobs {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    transition: 0.3s ease all;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button
+    .header__language-selector--knobs::before {
+    content: '';
+    background-size: 70%;
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    width: 23px;
+    height: 100%;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background: #ebf7fc;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button
+    .header__language-selector--layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 100px;
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+    transition: 0.3s ease all;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button
+    .header__language-selector--checkbox:checked
+    + .header__language-selector--knobs {
+    content: '';
+    left: 26px;
+}
+.generic__header
+    .header__container
+    .header__language-selector
+    .header__language-selector--button
+    .header__language-selector--checkbox:checked
+    ~ .header__language-selector--layer {
+    background-color: #ebf7fc;
+}
