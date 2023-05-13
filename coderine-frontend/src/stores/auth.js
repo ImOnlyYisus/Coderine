@@ -20,6 +20,7 @@ export const useAuthStore = defineStore('user', () => {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
             credentials: 'include',
         })
@@ -29,6 +30,7 @@ export const useAuthStore = defineStore('user', () => {
                     headers: {
                         'Content-Type': 'application/json',
                         Accept: 'application/json',
+                        'Access-Control-Allow-Origin': '*',
                     },
                     credentials: 'include',
                     body: JSON.stringify(user),
@@ -57,6 +59,8 @@ export const useAuthStore = defineStore('user', () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                Accept: 'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify({ email, password }),
         })
@@ -98,6 +102,7 @@ export const useAuthStore = defineStore('user', () => {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
                 Authorization: `Bearer ${oldToken}`,
+                'Access-Control-Allow-Origin': '*',
             },
             credentials: 'include',
         }).catch((error) => {
