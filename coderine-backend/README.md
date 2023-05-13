@@ -1,66 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![Logo](../docs/img/logo-white.png)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+- [Idea](#idea)
+  - [📋Feautures del proyecto](#feautures-del-proyecto)
+- [🗃️Preparación del entorno y ejecución del proyecto](#️preparación-del-entorno-y-ejecución-del-proyecto)
+  - [⚙️Configuración del proyecto](#️configuración-del-proyecto)
+  - [▶️Ejecutar el proyecto](#️ejecutar-el-proyecto)
+- [📚 Dependencias](#-dependencias)
+  - [📒 Dependencias de desarrollo](#-dependencias-de-desarrollo)
+  - [📕 Dependencias de producción](#-dependencias-de-producción)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Idea
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+La idea principal es hacer una aplicación parecida a [Codepen](https://codepen.io/), obviamente no tan completa como esta, pero si con las funcionalidades básicas.
 
-## Learning Laravel
+Desde la parte del backend se proporcionan los datos necesarios para poder obtener los **usuarios** y los **componentes** que estos han creado.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+En un principio gestioné un diagrama de casos de usos para ver que podíamos llegar a hacer.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![Diagrama de casos de uso](../docs/uml/uses-cases.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📋Feautures del proyecto
 
-## Laravel Sponsors
+> **Nota:** Estas son las funcionalidades que tiene el proyecto en la versión 0.0.1, pero se irán cumpliendo y añadiendo más funcionalidades.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- [x] **Login tradicional**: El usuario se puede loguear con su email y contraseña.
+- [x] **Registro tradicional**: El usuario se puede registrar con su email, contraseña y nombre de usuario.
+- [x] **Logout**: El usuario se puede desloguear de la aplicación.
+- [x] **API REST**: La aplicación tiene una API REST para poder obtener los datos de los usuarios y los componentes.
+- [x] **Protección de rutas**: Las rutas de la aplicación están protegidas, es decir, si el usuario no está logueado no podrá acceder a ellas.
+- [x] **Validación de datos**: Los datos que se envían al backend están validados.
+- [x] **Gestión de errores**: La aplicación gestiona los errores que se puedan producir.
+- [ ] **OAuth2**: La aplicación permite loguearse con Google.
+- [ ] **OAuth2**: La aplicación permite loguearse con Github.
+- [ ] **Optimizar la aplicación**
+- [ ] **Backups de la base de datos**: La aplicación hace backups de la base de datos.
+- [ ] **Sistema de recomendación**: Implementar a la aplicación un sistema de recomendación de componentes.
 
-### Premium Partners
+# 🗃️Preparación del entorno y ejecución del proyecto
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Para poder ejecutar el proyecto, necesitaremos tener instalado [Php](https://www.php.net/) y [Composer](https://getcomposer.org/).
 
-## Contributing
+> **Nota:** Al trabajar con un proyecto de **Laravel 10** necesitaremos tener instaldo **PHP 8.1+**, al igual que una versión de **MySQL 5.7+**.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Una vez lo tengamos instalado, tendremos que instalar las dependencias del proyecto, para ello ejecutaremos el siguiente comando:
 
-## Code of Conduct
+```bash
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️Configuración del proyecto
 
-## Security Vulnerabilities
+Para poder configurar el proyecto, tendremos que crear un archivo `.env` en la raíz del proyecto, para ello podemos copiar el archivo `.env.example` y renombrarlo a `.env`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Una vez tengamos el archivo `.env` creado, tendremos que configurar las siguientes variables de entorno:
 
-## License
+```env
+#Configurar el archivo .env
+#Cambiar variables de entorno
+...
+DB_HOST= [Tu ip de MySQL] si estas en local puedes dejarlo como localhost
+DB_PORT=3306
+DB_DATABASE=coderine #Tendrás que crear la base de datos en MySQL vacía con ese nombre
+DB_USERNAME= [Tu usuario de MySQL]
+DB_PASSWORD= [Tu contraseña de MySQL]
+...
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+También tendremos que generar una clave para la aplicación, para ello ejecutaremos el siguiente comando:
+
+```bash
+php artisan key:generate
+```
+
+## ▶️Ejecutar el proyecto
+
+Para ejecutar el proyecto, tendremos que ejecutar el siguiente comando:
+
+```bash
+php artisan serve
+```
+
+> **Nota:** El proyecto se ejecutará en el puerto 8000, si quieres cambiarlo, tendrás que ejecutar el siguiente comando:
+> ```bash
+> php artisan serve --port=PUERTO
+> ```
+> Sustituyendo **PUERTO** por el puerto que quieras.
+
+# 📚 Dependencias
+
+## 📒 Dependencias de desarrollo
+
+- [fakerphp/faker](https://packagist.org/packages/fakerphp/faker): Faker es un paquete de PHP que permite generar datos falsos aleatorios para pruebas.
+- [laravel/pint](https://packagist.org/packages/laravel/pint): Pint es un paquete de Laravel que permite interactuar con la base de datos mediante la consola de comandos.
+- [laravel/sail](https://packagist.org/packages/laravel/sail): Sail es un paquete de Laravel que permite utilizar Docker para desarrollar aplicaciones web.
+- [mockery/mockery](https://packagist.org/packages/mockery/mockery): Mockery es un paquete de PHP que permite crear objetos de prueba simulados para pruebas unitarias.
+- [nunomaduro/collision](https://packagist.org/packages/nunomaduro/collision): Collision es un paquete de PHP que mejora la experiencia de la consola de comandos de Laravel.
+- [phpunit/phpunit](https://packagist.org/packages/phpunit/phpunit): PHPUnit es un paquete de PHP que permite realizar pruebas unitarias y de integración en Laravel.
+- [spatie/laravel-ignition](https://packagist.org/packages/spatie/laravel-ignition): Ignition es un paquete de Laravel que facilita el proceso de depuración y resolución de errores en las aplicaciones web.
+
+## 📕 Dependencias de producción
+
+- [php](https://www.php.net/): PHP es un lenguaje de programación de propósito general de código abierto, muy utilizado en el desarrollo web.
+- [guzzlehttp/guzzle](https://packagist.org/packages/guzzlehttp/guzzle): Guzzle es un cliente HTTP de PHP moderno, que permite enviar peticiones HTTP/1.1 y HTTP/2 de manera sencilla.
+- [laravel/framework](https://packagist.org/packages/laravel/framework): Laravel es un popular framework de PHP que facilita el desarrollo de aplicaciones web elegantes y eficientes.
+- [laravel/sanctum](https://packagist.org/packages/laravel/sanctum): Sanctum es un paquete de Laravel que permite autenticar usuarios mediante tokens de API.
+- [laravel/tinker](https://packagist.org/packages/laravel/tinker): Tinker es una herramienta CLI de Laravel que permite interactuar con la aplicación en tiempo real, mediante la consola de comandos.
