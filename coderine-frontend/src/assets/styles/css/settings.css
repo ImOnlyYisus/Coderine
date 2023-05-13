@@ -1,29 +1,54 @@
 /* PLAYGROUND */
 /* HEADER GEBNERIC */
 @font-face {
-    font-family: 'Fira Code';
-    src: url(/fonts/FiraCode-VariableFont_wght.ttf);
-}
+  font-family: 'Fira Code';
+  src: url(/fonts/FiraCode-VariableFont_wght.ttf); }
 
 @font-face {
-    font-family: 'Josefin Sans';
-    src: url(/fonts/JosefinSans-VariableFont_wght.ttf);
-}
+  font-family: 'Josefin Sans';
+  src: url(/fonts/JosefinSans-VariableFont_wght.ttf); }
 
 @font-face {
-    font-family: 'Montserrat';
-    src: url(/fonts/montserrat/Montserrat-Regular.otf);
-}
+  font-family: 'Montserrat';
+  src: url(/fonts/montserrat/Montserrat-Regular.otf); }
 
 @font-face {
-    font-family: 'Quicksand';
-    src: url(/fonts/Quicksand-VariableFont_wght.ttf);
-    font-weight: bold;
-}
+  font-family: 'Quicksand';
+  src: url(/fonts/Quicksand-VariableFont_wght.ttf);
+  font-weight: bold; }
 
 @font-face {
-    font-family: 'FontAwesome';
-    src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf),
-        url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf),
-        url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf);
-}
+  font-family: 'FontAwesome';
+  src: url(/fonts/FontAwesome/Font-Awesome-5-Brands-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Regular-400.otf), url(/fonts/FontAwesome/Font-Awesome-5-Free-Solid-900.otf); }
+
+body {
+  background: #ece9e6;
+  background: -webkit-linear-gradient(to left, #ece9e6, #ffffff);
+  background: linear-gradient(to left, #ece9e6, #ffffff);
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite; }
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
