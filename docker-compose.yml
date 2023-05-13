@@ -9,8 +9,6 @@ services:
       - "8000:8000"
     depends_on:
       - db
-    volumes:
-      - ./coderine-backend:/var/www/html
     environment:
       DB_HOST: db
       DB_PORT: 3306
