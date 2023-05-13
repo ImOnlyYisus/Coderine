@@ -11,7 +11,7 @@
 - [📚 Dependencias](#-dependencias)
   - [📒 Dependencias de desarrollo](#-dependencias-de-desarrollo)
   - [📕 Dependencias de producción](#-dependencias-de-producción)
-- [🎨Funcionalidades](#funcionalidades)
+- [📌Funcionalidades](#funcionalidades)
   - [🎨Login tradicional](#login-tradicional)
   - [🎨Registro tradicional](#registro-tradicional)
   - [🎨Editor de código](#editor-de-código)
@@ -119,7 +119,7 @@ npm run preview
 - [vue-skeletor](https://www.npmjs.com/package/vue-skeletor):  Componente Vue.js para cargar contenido de esqueleto.
 - [vue3-split-panel](https://www.npmjs.com/package/vue3-split-panel): Componente Vue.js para panel de división.
 
-# 🎨Funcionalidades
+# 📌Funcionalidades
 
 ## 🎨Login tradicional
 
