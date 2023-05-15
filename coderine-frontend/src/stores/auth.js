@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import router from '@/router';
-import { saveStorage, removeStorage } from '../composables/storage';
+import { saveStorage, removeStorage } from '../utils/storage';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const BACKEND_URL_CSRF = import.meta.env.VITE_BACKEND_CSRF;
