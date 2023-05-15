@@ -1,5 +1,5 @@
 import { useAuthStore } from '@/stores/auth';
-import { getStorage } from '../composables/storage';
+import { getStorage } from '../plugins/storage';
 
 export default function checkStorage() {
     const token = getStorage('token');

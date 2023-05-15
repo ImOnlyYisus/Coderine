@@ -1,4 +1,4 @@
-import { encryptData, decryptData } from '../utils/encrypt-data';
+import { encryptData, decryptData } from './encrypt-data';
 
 const saveStorage = (key, value) => {
     const encryptedValue = encryptData(value);
