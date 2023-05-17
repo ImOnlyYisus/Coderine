@@ -59,7 +59,7 @@ export const useComponentsStore = defineStore('components', () => {
 
     const getComponentById = (id) => {
         uuid.value = id;
-        return fetch(`${BACKEND_URL}/api/components${uuid.value}`, {
+        return fetch(`${BACKEND_URL}/api/components/${uuid.value}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
